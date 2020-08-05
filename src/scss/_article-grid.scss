@@ -1,0 +1,129 @@
+.articles-block {
+    &__btn {
+        text-align: center;
+        margin-top: 45px;
+    }
+}
+
+.toggle {
+    padding: 20px 0;
+    text-align: right;
+    position: relative;
+
+    &__link {
+        font-size: 2.5rem;
+        color: $no-active;
+
+        & + & {
+            margin-left: 20px;
+        }
+    }
+
+    .primary { color: $primary-color; }
+}
+
+.articles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+    font-size: .8em;
+
+    @media screen and (min-width: 576px) {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+    }
+
+    @media screen and (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (min-width: 992px) { font-size: 1em; }
+
+    .article {
+        width: 100%;
+        padding-top: 100%;
+        background-color: $article-bg;
+        display: inline-block;
+        position: relative;
+
+        @media screen and (min-width: 425px) and (max-width: 575px) {
+            width: 80%;
+        }
+    
+        &:before {
+            content: '';
+            @include posA(0,0,0,0);
+            background: rgba($black, .5);
+            z-index: 1;
+        }
+    
+        &__link {
+            @include posA(0,0,0,0);
+            @include full;
+            @include flex($ali: flex-end);
+        }
+
+        &__video {
+            font-size: 2.3rem;
+            color: rgba($secondary-color, .56);
+            @include posA($top: 15px, $right: 15px);
+            z-index: 2;
+        }
+
+        &__img-wrap {
+            display: block;
+            @include posA(0,0,0,0);
+            @include full;
+            overflow: hidden;
+        }
+        &__img {
+            @include posA($top: 50%, $left: 50%);
+            @include transform;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        &__content {
+            padding: 20px 15px;
+            position: relative;
+            z-index: 2;
+            color: $secondary-color;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            @include full;
+
+            &--center {
+                justify-content: center;
+
+                .article__about--center {
+                    @include posA($bottom: 20px);
+                    width: 100%;
+                }
+            }
+        }
+        
+        &__about {
+            @include flex;
+            margin-top: 20px;
+
+            &--center {
+                justify-content: center;
+
+                .article__text {
+                    margin-left: 0;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        &__day {
+            flex-basis: 34%;
+            font-family: 'Proxima Nova Lt', sans-serif;
+        }
+
+        &__like, &__comment { flex-basis: 33%; }
+
+        &__text { margin-left: 5px; }
+    }
+}
+

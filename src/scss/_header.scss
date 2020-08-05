@@ -1,0 +1,124 @@
+.header-wrap {
+    position: relative;
+    background-color: rgba($secondary-color, .6);
+}
+
+.header {
+    padding: 15px 0;
+    @include flex($jc: center);
+    flex-wrap: wrap;
+
+    @media screen and (min-width: 425px) { padding: 15px 20px; }
+
+    @media screen and (min-width: 576px) {
+        padding: 35px 60px;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        @media screen and (min-width: 576px) { flex-basis: 20%; }
+    }
+
+    &__about { 
+        margin-top: 20px;
+        flex: 1 0 70%;
+
+        @media screen and (min-width: 425px) {
+            padding-left: 15px;
+            margin-top: 0;
+        }
+        @media screen and (min-width: 576px) { padding-left: 50px; }
+    }
+    &__date {
+        @include flex($jc: center);
+        margin-top: 20px;
+
+        @media screen and (min-width: 425px) { justify-content: inherit; }
+        
+        p { font-weight: normal; }
+    }
+    &__forms {
+        flex-grow: 1;
+        text-align: center;
+
+        @media screen and (min-width: 768px) { text-align: left; }
+    }
+    &__form {
+        display: inline-block;
+        max-width: 185px;
+        width: 100%;
+        margin: 0 15px;
+        text-align: center;
+
+        @media screen and (min-width: 425px) { text-align: left; }
+
+        & + & {
+            margin-top: 20px;
+
+            @media screen and (min-width: 576px) { margin-top: 0; }
+        }
+        
+        input {
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover {
+                border-color: $primary-color;
+                box-shadow: inset 0 0 1px 1px $primary-color;
+            }
+        }
+    }
+}
+
+.head {
+    @include flex($jc: center);
+    flex-wrap: wrap;
+
+    @media screen and (min-width: 768px) { justify-content: inherit; }
+
+    &__btn {
+        margin-top: 20px;
+
+        @media screen and (min-width: 768px) {
+            margin-left: 20px;
+            margin-top: 0;
+            flex-basis: auto;
+        }
+    }
+    &__date { margin-left: 5px; }
+}
+
+.title {
+    font-family: 'Mariad Pro', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: $space;
+    flex-basis: 100%;
+    flex-grow: 1;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+        text-align: left;
+        flex-basis: initial;
+        flex-grow: 0;
+    }
+}
+
+.info {
+    margin-top: 20px;
+    @include flex($jc: center);
+
+    @media screen and (min-width: 425px) {
+        justify-content: start;
+    }
+
+    &__item {
+        & + & {
+            margin-left: $gap;
+        }
+    }
+
+    &__text {
+        font-weight: normal;
+        margin-left: 5px;
+    }
+}

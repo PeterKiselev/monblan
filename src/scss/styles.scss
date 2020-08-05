@@ -1,0 +1,88 @@
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+
+*, *:before, *:after { box-sizing: border-box; }
+ul { list-style: none; margin: 0; padding: 0; }
+a { text-decoration: none; color: inherit; }
+p { margin: 0; }
+img { object-fit: cover; max-width: 100%; }
+h1, h2, h3, h4, h5, h6 { margin: 0; line-height: 1;}
+
+html { font-size: 10px; scroll-behavior: smooth;}
+
+body {
+    @include font($body-ff, 1.7rem, $body-color, bold, $lh: 1.4);
+    background: $body-bg;
+}
+
+.body-img {
+    &__left { @include posA($top: 0, $left: 0); }
+
+    &__right {
+        position: fixed;
+        right: 0;
+        bottom: 50px;
+        max-width: 240px;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 970px;
+    padding: 0 15px;
+}
+
+.btn {
+    max-width: 150px;
+    width: 100%;
+    min-height: 30px;
+    letter-spacing: $space;
+    @include flex($df: inline-flex, $jc: center);
+    @include font($body-ff, 1.2rem, $black, 500, 1);
+    background-color: transparent;
+    border: $border-width solid $black;
+    cursor: pointer;
+    @include tr;
+    padding: .6em;
+    border-radius: 26px;
+    text-transform: uppercase;
+
+    @include hover {
+        color: $secondary-color;
+        background-color: rgba($black, .7);
+        border-color: $black;
+    }
+
+    &--primary {
+        border-radius: 3px;
+        color: $primary-color;
+        border-color: $primary-color;
+        text-transform: none;
+        font-size: 1.5rem;
+        font-family: $body-ff;
+
+        @include hover {
+            background-color: rgba($primary-color, .7);
+            border-color: $primary-color;
+        }
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+
+.section { padding-bottom: 75px; }
+
+@import 'header';
+@import 'article-grid';
+@import 'article-list';
+
