@@ -45,6 +45,14 @@
         background-color: $article-bg;
         display: inline-block;
         position: relative;
+        @include tr;
+        @include hover {
+            box-shadow: 0 0 2px 2px rgba($black, .3);
+
+            &:before {
+                background: rgba($black, .7);
+            }
+        }
 
         @media screen and (min-width: 425px) and (max-width: 575px) {
             width: 80%;
@@ -55,6 +63,7 @@
             @include posA(0,0,0,0);
             background: rgba($black, .5);
             z-index: 1;
+            @include tr;
         }
     
         &__link {

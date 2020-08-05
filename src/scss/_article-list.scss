@@ -7,6 +7,9 @@
         padding-top: 0;
         width: 100%;
 
+        @include hover {
+            &:before { background: rgba($black, 0); }
+        }
         &:before { background: rgba($black, 0); }
 
         &__link {
